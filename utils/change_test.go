@@ -16,7 +16,8 @@ func TestChangeTextColor(t *testing.T) {
 		args args
 		want string
 	}{
-		{"Change uncolored string to red", args{"apple", ansi.RedText}, "\033[31mapple"},
+		{"Change uncolored string to red", args{"apple", ansi.RedText}, "\033[31mapple\033[0m"},
+		{"Change green string to red", args{"\033[32mapple", ansi.RedText}, "\033[31mapple\033[0m"},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -24,13 +25,6 @@ func TestChangeTextColor(t *testing.T) {
 				t.Errorf("\nChangeTextColor() = %v, want %v", got, tt.want)
 			}
 		})
-	}
-}
-
-func Test_castForegroundColorToAnsiCode(t *testing.T) {
-	want := ansi.Code("31")
-	if got := ansi.Code(ansi.RedText); got != want {
-		t.Errorf("\napplyAnsiCode() = %v, want %v", got, want)
 	}
 }
 
