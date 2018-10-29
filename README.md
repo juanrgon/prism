@@ -1,4 +1,4 @@
-# Prism
+# Prism 💎
 
 _A golang library for colorizing terminal output_
 
