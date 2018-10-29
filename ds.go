@@ -92,3 +92,7 @@ func (ds DecoratedString) Underlined() DecoratedString {
 func (ds DecoratedString) InBold() DecoratedString {
 	return InBold(string(ds))
 }
+
+func (ds DecoratedString) Inverted() DecoratedString {
+	return Inverted(string(ds))
+}

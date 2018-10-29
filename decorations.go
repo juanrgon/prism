@@ -13,3 +13,8 @@ func Underlined(s string) DecoratedString {
 func InBold(s string) DecoratedString {
 	return DecoratedString(utils.Embolden(s))
 }
+
+// InBold returns the input string in bold
+func Inverted(s string) DecoratedString {
+	return DecoratedString(utils.Invert(s))
+}

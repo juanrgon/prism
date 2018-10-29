@@ -1,12 +1,15 @@
 package utils
 
 import (
+	"strings"
 	"github.com/juanrgon/prism/ansi"
 )
 
 func applyAnsiCode(code ansi.Code, text string) string {
 	start := string(ansi.Begin + code + ansi.End)
 	end := string(ansi.Reset)
+	text = removeRegex("\033\\[0m$", text)
+	text = strings.Join(strings.Split(text, ansi.Reset), string(ansi.Reset + start))
 	return start + text + end
 }
 

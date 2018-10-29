@@ -23,5 +23,5 @@ const (
 	// WhiteText is the ansi escape code for a white text
 	WhiteText = ForegroundColor("37")
 	// DefaultText is the ansi escape code for the default text color
-	DefaultText = "39"
+	DefaultText = ForegroundColor("39")
 )

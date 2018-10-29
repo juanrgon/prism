@@ -39,6 +39,7 @@ func Test_applyAnsiCode(t *testing.T) {
 		want string
 	}{
 		{"Apply red text ansi code to 'apple'", args{ansi.Code(ansi.RedText), "apple"}, "\033[31mapple\033[0m"},
+		{"Apply green text to partially underlined string", args{ansi.Code(ansi.GreenText), "With \033[4munderlined text\033[0m"}, "\033[32mWith \033[4munderlined text\033[0m"},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
